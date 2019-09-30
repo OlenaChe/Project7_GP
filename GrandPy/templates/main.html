@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>  
+    </head>
+    <body> 
+        <br><br>
+        <input type="text" id="question"><br>
+        <button id="btn">Poser question</button>
+        <br><br>
+        <div id="display_conversation"></div>
+        <br>
+        <h4>Voilà votre GOOGLE MAP</h4>
+        <div id="map" style="width:100%;height:400px;"></div>
+        <script src="../static/js/ajax.js"></script>
+        <script src="../static/js//map.js"></script>
+        
+        <script src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_KEY}}&libraries=places&language=fr&region=FR"></script>
+
+    </body>
+</html>
