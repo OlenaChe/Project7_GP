@@ -1,7 +1,7 @@
 import requests
 import json
 
-def get_data(parsedlist):
+def get_wikidata(parsedlist):
      p = {"action":"query",
           "prop": "extracts",
           "format": "json",
@@ -11,8 +11,7 @@ def get_data(parsedlist):
           }   
      url = "http://fr.wikipedia.org/w/api.php" 
      r = requests.get(url, params = p)
-     wiki_response = (r.json()['query']['pages'][list(r.json()['query']['pages'])[0]]['extract'])
-     return wiki_response
-     #return r.json()
+     wikidata = (r.json()['query']['pages'][list(r.json()['query']['pages'])[0]]['extract'])
+     return wikidata
 
-#print(get_data(["OpenClassrooms", "GrandPy"]))
+#print(get_wikidata(["OpenClassrooms", "GrandPy"]))

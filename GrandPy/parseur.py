@@ -2,7 +2,7 @@ from flask import Flask
 import json
 
 from string import punctuation
-#
+
 def parser_list(question):
     parsedlist = []
     no_dash = question.replace("-", " ")

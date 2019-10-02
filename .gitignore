@@ -2,5 +2,6 @@
 env/
 GrandPy/__pycache__/
 GrandPy/google_key.py
+config.py
 
 

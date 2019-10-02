@@ -1,8 +1,8 @@
 import requests
 import json
 
-from google_key import *
-
+from .google_key import *
+"""
 def get_latitude(query):
     p = {"key":GOOGLE_KEY, "query":query}
     url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
@@ -33,13 +33,34 @@ def get_address(query):
 
 #print(get_address(["OpenClassrooms", "Grandpy"]))
 """
-def get_id(query):
-    search_payload = {"key":GOOGLE_KEY, "query":query}
-    search_url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
-    search_req = requests.get(search_url, params=search_payload)
-    search_json = search_req.json()
-    place_id = search_json["results"][0]["place_id"]
-    return place_id
+
+class Location:
+
+    def get_data(self, query):
+        p = {"key":GOOGLE_KEY, "query":query}
+        url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
+        r_data = requests.get(url, params = p).json()
+        return r_data
+
+    def get_address(self, query):
+        r_data = self.get_data(query)
+        address = r_data["results"][0]["formatted_address"]
+        return address 
     
-#print(get_id(["OpenClassrooms", "Grandpy"]))
-"""
+    def get_latitude(self, query):
+        r_data = self.get_data(query)
+        latitude = r_data["results"][0]["geometry"]["location"]["lat"]
+        return latitude
+
+    def get_longitude(self, query):
+        r_data = self.get_data(query)
+        longitude = r_data["results"][0]["geometry"]["location"]["lng"]
+        return longitude
+
+#data = Location()
+#print(data.get_address(["OpenClassrooms", "Grandpy"]))
+#print(data.get_latitude(["OpenClassrooms", "Grandpy"]))
+#print(data.get_longitude(["OpenClassrooms", "Grandpy"]))
+
+
+
