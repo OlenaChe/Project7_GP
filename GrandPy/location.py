@@ -2,6 +2,7 @@ import requests
 import json
 
 from .google_key import *
+# +++
 """
 def get_latitude(query):
     p = {"key":GOOGLE_KEY, "query":query}
@@ -37,7 +38,7 @@ def get_address(query):
 class Location:
 
     def get_data(self, query):
-        p = {"key":GOOGLE_KEY, "query":query}
+        p = {"key":API_KEY, "query":query}
         url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
         r_data = requests.get(url, params = p).json()
         return r_data
