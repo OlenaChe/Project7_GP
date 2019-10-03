@@ -58,11 +58,11 @@ class Location:
         longitude = r_data["results"][0]["geometry"]["location"]["lng"]
         return longitude
 
-data = Location()
+#data = Location()
 #print(data.get_data(["OpenClassrooms", "Grandpy"]))
-print(data.get_address(["OpenClassrooms", "Grandpy"]))
-print(data.get_latitude(["OpenClassrooms", "Grandpy"]))
-print(data.get_longitude(["OpenClassrooms", "Grandpy"]))
+#print(data.get_address(["OpenClassrooms", "Grandpy"]))
+#print(data.get_latitude(["OpenClassrooms", "Grandpy"]))
+#print(data.get_longitude(["OpenClassrooms", "Grandpy"]))
 
 
 
