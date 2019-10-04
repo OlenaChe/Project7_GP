@@ -2,7 +2,7 @@ from flask import Flask, render_template, jsonify, request
 import requests
 
 from .parseur import Parseur
-from .wiki_info import get_wiki_extract, get_wiki_url
+from .wiki_info import Wiki_info
 from .location import Location 
 
 app = Flask(__name__)
@@ -19,8 +19,9 @@ def process():
     data = Parseur()
     parsedlist = data.parser_list(question)
     parsed_str = data.parser_str(question)
-    wiki_extract = get_wiki_extract(parsedlist)
-    wiki_url = get_wiki_url(parsedlist)
+    info = Wiki_info()
+    wiki_extract = info.get_wiki_extract(parsedlist)
+    wiki_url = info.get_wiki_url(parsedlist)
     location = Location()
     address = location.get_address(parsedlist)
     lat = location.get_latitude(parsedlist)

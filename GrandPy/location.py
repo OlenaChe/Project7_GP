@@ -38,31 +38,51 @@ def get_address(query):
 class Location:
 
     def get_data(self, query):
-        p = {"key":"API_KEY", "query":query}
+        p = {"key":"AIzaSyD1YKYO73lEKwBEShSb7Fty-37CC2pAJKs", "query":query}
         url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
-        r_data = requests.get(url, params = p).json()
-        return r_data
+        r = requests.get(url, params = p)
+        return r
+        
 
     def get_address(self, query):
-        r_data = self.get_data(query)
-        address = r_data["results"][0]["formatted_address"]
-        return address 
+        r = self.get_data(query)
+        address = "Dis-moi, quel endroit tu cherches ?"
+        if r.status_code == 200:
+            try:
+                address_data = r.json()["results"][0]["formatted_address"]
+                address = "Si je ne me trompe pas, l'adresse que tu cherche, c'est ... " + address_data + " Sinon, dis-moi le nom de lieu exact"
+            except IndexError:
+                address = "Désolé, je n'ai pas compris. Quel endroit tu cherches ?"
+            finally:
+                return address   
     
     def get_latitude(self, query):
-        r_data = self.get_data(query)
-        latitude = r_data["results"][0]["geometry"]["location"]["lat"]
-        return latitude
-
+        r = self.get_data(query)
+        latitude = 48.8748465
+        if r.status_code == 200:
+            try:
+                latitude = self.get_data(query)["results"][0]["geometry"]["location"]["lat"]
+            except IndexError:
+                latitude = 48.8748465
+            finally:
+                return latitude 
+    
     def get_longitude(self, query):
-        r_data = self.get_data(query)
-        longitude = r_data["results"][0]["geometry"]["location"]["lng"]
-        return longitude
+        r = self.get_data(query)
+        longitude = 2.3504873
+        if r.status_code == 200:
+            try:
+                longitude = self.get_data(query)["results"][0]["geometry"]["location"]["lng"]
+            except IndexError:
+                longitude = 2.3504873
+            finally:
+                return longitude
 
 #data = Location()
-#print(data.get_data(["OpenClassrooms", "Grandpy"]))
-#print(data.get_address(["OpenClassrooms", "Grandpy"]))
-#print(data.get_latitude(["OpenClassrooms", "Grandpy"]))
-#print(data.get_longitude(["OpenClassrooms", "Grandpy"]))
+#print(data.get_data(["GrandPy", "OpenClassrooms"]))
+#print(data.get_address(["GrandPy", "OpenClassrooms"]))
+#print(data.get_latitude(["Grandpy"]))
+#print(data.get_longitude(["Grandpy"]))
 
 
 
