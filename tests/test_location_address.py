@@ -10,7 +10,7 @@ class RequestResponse:
 def request_response(url, params):
     return RequestResponse()
 
-def test_get_address_for_rstatus200():
+def test_wiki_url():
     location.requests.get = request_response
     result = location.get_address("OpenClassrooms")
-    assert result == "Si je ne me trompe pas, l'adresse que tu cherche, c'est ... 7 Cité Paradis, 75010 Paris, France Sinon, dis-moi le nom de lieu exact"
+    assert result == "Si je ne me trompe pas, l'adresse que tu cherche, c'est ... 7 Cité Paradis, 75010 Paris, France. Sinon, dis-moi le nom de lieu exact"
