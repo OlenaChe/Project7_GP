@@ -36,9 +36,9 @@ def get_wiki_url(parsedlist):
         return wiki_url
     
 
-print(get_wiki_info(["OpenClassrooms"]))
+#print(get_wiki_info(["OpenClassrooms"]))
 #print(get_wiki_extract(["OpenClassrooms"]))
-print(get_wiki_url(["OpenClassrooms"]))
+#print(get_wiki_url(["OpenClassrooms"]))
 
 """
 def response200(parsedlist):
