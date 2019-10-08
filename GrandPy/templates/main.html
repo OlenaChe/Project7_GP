@@ -1,14 +1,30 @@
 <!doctype html>
 <html>
+
     <head>
         <meta charset="utf-8">
+        <title>GrandPy</title>
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>  
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+         
     </head>
-    <body> 
+
+    <body>    
+        <div class="container-fluid header">
+            <div class="mx-auto" style="width: 887.5px;">
+                    <h1 class="display-4"> <p class="text-info">🤖 Demander l'adresse au GrandPy 👴</p></h1>
+            </div>
+        </div>
+
+        <div class="container-fluid">
         <br><br>
-        <input type="text" id="question"><br>
-        <button id="btn">Poser question</button>
+        <label for="question" class="qetq">Quelle est ta question, mon poussin ?</label>
+        <input type="text" id="question">
+        <button type="submit" id="btn">Envoyer</button>
         <br><br>
+
         <div id="display_conversation"></div>
         <br>
         <h4>Voilà votre GOOGLE MAP</h4>
@@ -17,6 +33,11 @@
         <script src="../static/js//map.js"></script>
         
         <script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&language=fr&region=FR"></script>
-
+        <br><br>
+        <footer class="fixed-bottom">
+            <div class="container-fluid footer">
+                <p class="white"> Olena ANDROSOVYCH      <a href="https://github.com/OlenaChe" target="_blank">Mon GitHub</a> 
+                </p>
+            </div>    
     </body>
 </html>

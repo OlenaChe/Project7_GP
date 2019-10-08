@@ -1,7 +1,8 @@
 import requests
 import json
 
-from os import getenv
+#import os
+#GOOGLE_KEY = str(os.getenv('API_KEY'))
 
 def get_data(query):
     p = {"key":"", "query":query}
@@ -40,9 +41,9 @@ def get_longitude(query):
     finally:
         return longitude
 
-#print(get_data("Openclassrooms"))
-#print(get_address("Openclassrooms"))
+print(get_data("Openclassrooms"))
+print(get_address("Openclassrooms"))
 #print(get_latitude("Paris"))
-print(get_longitude("Paris"))
-print(get_longitude("OpenClassrooms"))
+#print(get_longitude("Paris"))
+#print(get_longitude("OpenClassrooms"))
 

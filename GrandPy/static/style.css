@@ -1,0 +1,25 @@
+.header {
+    height: 100px;
+    background-color: gainsboro;
+    text-align: center;
+    vertical-align: center;
+    height: 5em;
+    line-height: 5em;
+}
+.footer {
+    background-color: gray;
+    height: 35px;   
+}
+label {
+    font-size: 18px;
+}
+.white {
+    font-style: italic;
+    color: rgb(247, 243, 243);
+    font-size: 20px;
+    text-align: center;
+    vertical-align: bottom;
+}
+.qetq {
+    color: grey
+}
