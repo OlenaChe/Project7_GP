@@ -26,27 +26,16 @@ def get_wiki_extract(parsedlist):
         return wiki_extract
     
 def get_wiki_url(parsedlist):
-    wiki_url = None
+    wiki_url = "https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal"
     data = get_wiki_info(parsedlist)
     try:
         wiki_url = (data['query']['pages'][list(data['query']['pages'])[0]]['fullurl'])
     except KeyError:
-        wiki_url = None
+        wiki_url = "https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal"
     finally:
         return wiki_url
     
 
-#print(get_wiki_info(["OpenClassrooms"]))
-#print(get_wiki_extract(["OpenClassrooms"]))
-#print(get_wiki_url(["OpenClassrooms"]))
-
-"""
-def response200(parsedlist):
-    r = get_wiki_info(parsedlist)
-    if r.status_code == 200:
-        print(r.json())
-    else:
-        print("C'est triste")
-"""
-
-#wiki_info.response200(["Openclassrooms"])
+#print(get_wiki_info([""]))
+print(get_wiki_extract([""]))
+#print(get_wiki_url([""]))

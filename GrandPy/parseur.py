@@ -64,5 +64,5 @@ def parser_str(question):
 
 
 
-#print(parser_list("Est-ce que tu connais l'adresse d'OpenClassrooms Paris ?"))
-#print(parser_str("Est-ce que tu connais l'adresse d'OpenClassrooms Paris ?"))
+print(parser_list("Est-ce que tu connais l'adresse d'OpenClassrooms Paris ?"))
+print(parser_str("Est-ce que tu connais l'adresse d'OpenClassrooms Paris ?"))

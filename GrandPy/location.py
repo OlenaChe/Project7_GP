@@ -1,10 +1,10 @@
 import requests
 import json
 
-#from .google_key import *
+from os import getenv
 
 def get_data(query):
-    p = {"key":"API_KEY", "query":query}
+    p = {"key":"AIzaSyD1YKYO73lEKwBEShSb7Fty-37CC2pAJKs", "query":query}
     url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
     r = requests.get(url, params = p)
     return r.json()
@@ -22,11 +22,11 @@ def get_address(query):
 
 def get_latitude(query):
     data = get_data(query)
-    latitude = 48.8748465
+    latitude = 48.856614
     try:
         latitude = data["results"][0]["geometry"]["location"]["lat"]
     except IndexError:
-        latitude = 48.8748465
+        latitude = 48.856614
     finally:
         return latitude 
     
@@ -42,6 +42,7 @@ def get_longitude(query):
 
 #print(get_data("Openclassrooms"))
 #print(get_address("Openclassrooms"))
-#print(get_latitude("Openclassrooms"))
-#print(get_longitude("Openclassrooms"))
+#print(get_latitude("Paris"))
+print(get_longitude("Paris"))
+print(get_longitude("OpenClassrooms"))
 
