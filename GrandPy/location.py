@@ -4,7 +4,7 @@ import json
 from os import getenv
 
 def get_data(query):
-    p = {"key":"AIzaSyD1YKYO73lEKwBEShSb7Fty-37CC2pAJKs", "query":query}
+    p = {"key":"", "query":query}
     url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
     r = requests.get(url, params = p)
     return r.json()

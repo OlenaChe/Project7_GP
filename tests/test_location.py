@@ -1,3 +1,5 @@
+# Testing the methods get_address, get_latitude, get_longitude
+ 
 from GrandPy import location
 
 class RequestResponse:
@@ -62,13 +64,6 @@ class RequestResponse:
 def request_response(url, params):
     return RequestResponse()
 
-def test_get_address():
-    location.requests.get = request_response
-    result = location.get_address("OpenClassrooms")
-    assert result == "Si je ne me trompe pas, l'adresse que tu cherche, c'est ... 7 Cité Paradis, 75010 Paris, France. Sinon, dis-moi le nom de lieu exact"
-
-# --- Response Error ---
-
 class RequestResponseError:
     def json(self):   
         r ={ 
@@ -84,7 +79,38 @@ class RequestResponseError:
 def request_response_error(url, params):
     return RequestResponseError()
 
+# ---Testing location.get_address
+
+def test_get_address(): 
+    location.requests.get = request_response # Response without Errors
+    result = location.get_address("OpenClassrooms")
+    assert result == "Si je ne me trompe pas, l'adresse que tu cherche, c'est ... 7 Cité Paradis, 75010 Paris, France. Sinon, dis-moi le nom de lieu exact"
+
 def test_get_address_error():
-    location.requests.get = request_response_error
+    location.requests.get = request_response_error # Response with an Error
     result = location.get_address("OpenClassrooms")
     assert result == "Désolé, je n'ai pas compris. Quel endroit tu cherches ?"
+
+# ---Testing location.get_latitude
+
+def test_get_lat():
+    location.requests.get = request_response # Response without Errors
+    result = location.get_latitude("OpenClassrooms")
+    assert result == 48.8748465
+
+def test_get_lat_error():
+    location.requests.get = request_response_error # Response with an Error
+    result = location.get_latitude("OpenClassrooms")
+    assert result == 48.856614
+
+# ---Testing location.get_longitude
+
+def test_get_lng():
+    location.requests.get = request_response # Response without Errors
+    result = location.get_longitude("OpenClassrooms")
+    assert result == 2.3504873
+
+def test_get_lng_error():
+    location.requests.get = request_response_error # Response with an Error
+    result = location.get_longitude("OpenClassrooms")
+    assert result == 2.3504873
