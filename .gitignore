@@ -1,9 +1,9 @@
 .vscode/
 env/
-GrandPy/__pycache__/
-GrandPy/google_key.py
-config.py
 __pycache__/
 tests/__pycache__/
+GrandPy/__pycache__
+GrandPy/key.py
+
 
 

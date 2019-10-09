@@ -1,22 +1,22 @@
 import requests
 import json
 
-def get_wiki_info(parsedlist):
+def get_wiki_info(query):
     p = {"action":"query",
         "prop": "info|extracts",
         "inprop": "url",
         "format": "json",
         "explaintext": "",
-        "titles": parsedlist, 
+        "titles": query, 
         "exsentences": 2,
         }   
     url = "http://fr.wikipedia.org/w/api.php" 
     r = requests.get(url, params = p)
     return r.json()
 
-def get_wiki_extract(parsedlist):
+def get_wiki_extract(query):
     wiki_extract = "Dis-moi, quel endroit tu cherches ?"
-    data = get_wiki_info(parsedlist)
+    data = get_wiki_info(query)
     try:
         wiki_data = data['query']['pages'][list(data['query']['pages'])[0]]['extract']
         wiki_extract = "D'ailleurs, est-ce que tu sais que " + wiki_data
@@ -25,9 +25,9 @@ def get_wiki_extract(parsedlist):
     finally:
         return wiki_extract
     
-def get_wiki_url(parsedlist):
+def get_wiki_url(query):
     wiki_url = "https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal"
-    data = get_wiki_info(parsedlist)
+    data = get_wiki_info(query)
     try:
         wiki_url = (data['query']['pages'][list(data['query']['pages'])[0]]['fullurl'])
     except KeyError:
@@ -37,5 +37,5 @@ def get_wiki_url(parsedlist):
     
 
 #print(get_wiki_info([""]))
-print(get_wiki_extract([""]))
+print(get_wiki_extract(["openclassrooms"]))
 #print(get_wiki_url([""]))
