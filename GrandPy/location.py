@@ -8,12 +8,14 @@ from .key import GOOGLE_KEY
 # API_KEY = str(os.getenv('API_KEY'))
 
 def get_data(query):
+    """Method which get the data concerned with the 'query' from the Google Maps API """
     p = {"key":str(GOOGLE_KEY), "query":query}
     url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
     r = requests.get(url, params = p)
     return r.json()
         
 def get_address(query):
+    """Method which get an address of the place concerned with the 'query' from from the Google Maps API"""
     address = "Dis-moi, quel endroit tu cherches ?"
     data = get_data(query)
     try:
@@ -25,6 +27,7 @@ def get_address(query):
         return address  
 
 def get_latitude(query):
+    """Method which get a latitude of the place concerned with the 'query' from from the Google Maps API"""
     data = get_data(query)
     latitude = 48.856614
     try:
@@ -35,6 +38,7 @@ def get_latitude(query):
         return latitude 
     
 def get_longitude(query):
+    """Method which get a longitude of the place concerned with the 'query' from from the Google Maps API"""
     data = get_data(query)
     longitude = 2.3504873
     try:

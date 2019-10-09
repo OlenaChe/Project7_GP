@@ -2,6 +2,7 @@ import requests
 import json
 
 def get_wiki_info(query):
+    """Method which gets the data concerned with the 'query' from the Wikipedia API  """
     p = {"action":"query",
         "prop": "info|extracts",
         "inprop": "url",
@@ -15,6 +16,7 @@ def get_wiki_info(query):
     return r.json()
 
 def get_wiki_extract(query):
+    """Method which gets the extract from API Wikipedia concerned with the 'query' """
     wiki_extract = "Dis-moi, quel endroit tu cherches ?"
     data = get_wiki_info(query)
     try:
@@ -26,6 +28,7 @@ def get_wiki_extract(query):
         return wiki_extract
     
 def get_wiki_url(query):
+    """Method which gets the url sur Wikipedia concerned with the 'query' """
     wiki_url = "https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal"
     data = get_wiki_info(query)
     try:
@@ -35,7 +38,6 @@ def get_wiki_url(query):
     finally:
         return wiki_url
     
-
-#print(get_wiki_info([""]))
-print(get_wiki_extract(["openclassrooms"]))
-#print(get_wiki_url([""]))
+#print(get_wiki_info("OpenClassrooms"))
+#print(get_wiki_extract("OpenClassrooms"))
+#print(get_wiki_url("OpenClassrooms"))

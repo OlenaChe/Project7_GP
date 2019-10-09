@@ -5,6 +5,7 @@ from GrandPy import wiki_info
 import requests
 
 class RequestResponse:
+    """Class defines the request response of the Wikipedia API (200 OK)"""
     def json(self):
         r ={ 
             'batchcomplete':'',
@@ -37,9 +38,11 @@ class RequestResponse:
         return r
 
 def request_response(url, params):
+    """Method returns """
     return RequestResponse()
 
 class RequestResponseError:
+    """Class defines the request response of the Wikipedia API (!= 200 OK)"""
     def json(self):   
         r = {'batchcomplete': ''}
         return r

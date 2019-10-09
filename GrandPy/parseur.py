@@ -2,7 +2,8 @@ import json
 
 from string import punctuation
 
-def parser(question):
+def parse(question):
+    """Method which parses the question of the user """
     parsedlist = []
     no_dash = question.replace("-", " ") # removed the dashes from question
     no_l_ap = no_dash.replace("l'", " ") # removed "l'"
