@@ -1,3 +1,5 @@
+"""Method which parses the question of the user for get a short query """
+
 import json
 
 from string import punctuation
@@ -10,19 +12,19 @@ def parse(question):
     no_d_ap = no_l_ap.replace("d'", " ") # removed "d'"
     oc_upper = no_d_ap.replace("Openclassrooms", "OpenClassrooms")
     ocl_lower = oc_upper.replace("openclassrooms", "OpenClassrooms")
-    wordlist = ocl_lower.split() # list of the words of a question   
+    wordlist = ocl_lower.split() # list of the words of a question
     with open('stoplist.json') as json_file:
-        stoplist = list(json.load(json_file)) # list of stopwords in lowercase  
+        stoplist = list(json.load(json_file)) # list of stopwords in lowercase
         for sign in punctuation:
-            stoplist.append(sign) # added punctuation to the stoplist    
+            stoplist.append(sign) # added punctuation to the stoplist
     for word in wordlist:
-        u = True
-        for stopword in stoplist: 
+        include_in_parsedlist = True
+        for stopword in stoplist:
             if stopword == word.casefold():
-                u = False 
-        if u:
-            parsedlist.append(word) 
-    parsedstr = " ".join(str(x) for x in parsedlist)   
+                include_in_parsedlist = False
+        if include_in_parsedlist:
+            parsedlist.append(word)
+    parsedstr = " ".join(str(x) for x in parsedlist)
     return parsedstr
 
-print(parser("Salut GrandPy ! Est-ce que tu connais l'adresse de google ?"))
+#print(parse("Salut GrandPy ! Est-ce que tu connais l'adresse de google ?"))

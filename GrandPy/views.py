@@ -1,9 +1,10 @@
+"""Views of the application GrandPy"""
+
 from flask import Flask, render_template, jsonify, request
-import requests
 
 from .parseur import parse
 from .wiki_info import get_wiki_extract, get_wiki_url
-from .location import get_data, get_address, get_latitude, get_longitude 
+from .location import get_address, get_latitude, get_longitude
 
 app = Flask(__name__)
 
@@ -26,4 +27,3 @@ def process():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
