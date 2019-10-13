@@ -1,12 +1,6 @@
-.vscode/
 env/
-__pycache__/
-.pytest_cache/
-tests/__pycache__/
-GrandPy/__pycache__
 GrandPy/key.py
-.idea/
-.DS_Store
+
 
 
 

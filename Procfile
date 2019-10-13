@@ -1,1 +1,1 @@
-web: gunicorn grandpy.views:app
+web: gunicorn GrandPy.views:app

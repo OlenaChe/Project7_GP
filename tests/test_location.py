@@ -1,6 +1,6 @@
 """Testing the methods get_address, get_latitude, get_longitude"""
 
-from grandpy import location
+from GrandPy import location
 
 class RequestResponse:
     def json(self):

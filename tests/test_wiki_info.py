@@ -1,6 +1,6 @@
 # Testing the methods get_wiki_extract, get_wiki_url
 
-from grandpy import wiki_info
+from GrandPy import wiki_info
 
 import requests
 
