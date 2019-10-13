@@ -25,5 +25,5 @@ def process():
     lng = get_longitude(parsed_question)
     return jsonify({'data': [question, address, wiki_extract, wiki_url, lat, lng, parsed_question]})
 
-if __name__ == "__main__":
-    app.run(debug=True)
+#if __name__ == "__main__":
+    #app.run(debug=True)
