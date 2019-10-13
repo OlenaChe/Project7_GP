@@ -1,1 +1,1 @@
-web: gunicorn grandpy:app
+web: gunicorn grandpy.views:app --log-file -
