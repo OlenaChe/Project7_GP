@@ -2,15 +2,17 @@
 
 import requests
 
-from .key import GOOGLE_KEY
+#from .key import GOOGLE_KEY
 #print(GOOGLE_KEY)
 
-# import os
-# API_KEY = str(os.getenv('API_KEY'))
+import os
+GOOGLE_KEY = os.getenv('GOOGLE_KEY')
+#print(GOOGLE_KEY)
+#print(os.environ)
 
 def get_data(query):
     """Method which gets the data concerned with the 'query' from the Google
-    Maps API """
+    Maps API""" 
     par = {"key":str(GOOGLE_KEY), "query":query}
     url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
     req = requests.get(url, params=par)
