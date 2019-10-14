@@ -1,7 +1,8 @@
 env/
 GrandPy/key.py
 .pytest_cache
-*.pyc
+GrandPy/.pytest_cache
+GrandPy/__pycache__
 
 
 
