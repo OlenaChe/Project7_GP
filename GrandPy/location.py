@@ -53,6 +53,6 @@ def get_longitude(query):
         return longitude
 
 #print(get_data("OpenClassrooms"))
-print(get_address("OpenClassrooms"))
+#print(get_address("OpenClassrooms"))
 #print(get_latitude("OpenClassrooms"))
 #print(get_longitude("OpenClassrooms"))
