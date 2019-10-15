@@ -1,4 +1,4 @@
-from run import app
+from Projet7_GrandPy.GrandPy.views import app
 
 def test_home_page_returns_correct_html():
     client = app.test_client()

@@ -1,6 +1,6 @@
 """Testing the methods get_address, get_latitude, get_longitude"""
-import Projet7_GrandPy.tests
-from GrandPy import location
+
+from Projet7_GrandPy.GrandPy import location
 
 class RequestResponse:
     def json(self):
@@ -85,14 +85,12 @@ def request_response_error(url, params):
 def test_get_address():
     location.requests.get = request_response # Response without Errors
     result = location.get_address("OpenClassrooms")
-    assert result == "Si je ne me trompe pas, l'adresse que tu cherche, c'est\
-                      ... 7 Cité Paradis, 75010 Paris, France.\
-                      Sinon, preciser le nom de lieu exact"
+    assert result == "Si je ne me trompe pas, l'adresse que tu cherche, c'est ... 7 Cité Paradis, 75010 Paris, France. Sinon, dis-moi le nom de lieu exact"
 
 def test_get_address_error():
     location.requests.get = request_response_error # Response with an Error
     result = location.get_address("OpenClassrooms")
-    assert result == "Désolé, je n'ai pas compris. Quel endroit tu cherches ?"
+    assert result == "Désolé, je n'ai pas compris quel endroit tu cherches ?"
 
 # ---Testing location.get_latitude
 

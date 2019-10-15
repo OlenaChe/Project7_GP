@@ -40,5 +40,5 @@ def get_wiki_url(query):
         return wiki_url
 
 #print(get_wiki_info("OpenClassrooms"))
-print(get_wiki_extract("OpenClassrooms"))
+#print(get_wiki_extract("OpenClassrooms"))
 #print(get_wiki_url("OpenClassrooms"))

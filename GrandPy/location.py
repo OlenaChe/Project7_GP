@@ -1,14 +1,9 @@
 """Methods which get the data from the Google Maps API"""
 
 import requests
-
-#from .key import GOOGLE_KEY
-#print(GOOGLE_KEY)
-
 import os
+
 GOOGLE_KEY = os.getenv('GOOGLE_KEY')
-#print(GOOGLE_KEY)
-#print(os.environ)
 
 def get_data(query):
     """Method which gets the data concerned with the 'query' from the Google
@@ -58,6 +53,6 @@ def get_longitude(query):
         return longitude
 
 #print(get_data("OpenClassrooms"))
-#print(get_address("OpenClassrooms"))
+print(get_address("OpenClassrooms"))
 #print(get_latitude("OpenClassrooms"))
 #print(get_longitude("OpenClassrooms"))
