@@ -3,7 +3,9 @@ GrandPy/key.py
 .pytest_cache
 GrandPy/.pytest_cache
 GrandPy/__pycache__
-
+*.pyc
+tests/__pycache/
+.vscode/
 
 
 
