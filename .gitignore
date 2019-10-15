@@ -4,10 +4,6 @@ GrandPy/key.py
 GrandPy/.pytest_cache
 GrandPy/__pycache__
 *.pyc
-tests/.__pycache/
-tests/__pycache__/test_location.cpython-37-pytest-5.2.1.pyc
-tests/__pycache__/test_views.cpython-37-pytest-5.2.1.pyc
-tests/__pycache__/test_wiki_info.cpython-37-pytest-5.2.1.pyc
 .vscode/
 
 
