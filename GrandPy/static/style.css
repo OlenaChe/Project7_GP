@@ -23,3 +23,7 @@ label {
 .qetq {
     color: grey
 }
+.letter {
+    color: rgb(13, 165, 170); /* Цвет символа */
+    font-size: 250%; /* Размер шрифта */
+   } 
