@@ -4,21 +4,23 @@ import json
 
 from string import punctuation
 
+
 def parse(question):
-    """Method which parses the question of the user """
+    """Method which parses the question of the user"""
     parsedlist = []
-    no_dash = question.replace("-", " ") # removed the dashes from question
-    no_l_ap = no_dash.replace("l'", " ") # removed "l'"
-    no_d_ap = no_l_ap.replace("d'", " ") # removed "d'"
-    oc_upper = no_d_ap.replace("Openclassrooms", "OpenClassrooms")
-    ocl_lower = oc_upper.replace("openclassrooms", "OpenClassrooms")
-    wordlist = ocl_lower.split() # list of the words of a question
+    i = 1
+    for symbol in question:
+        if symbol in punctuation:
+            question = question.replace(symbol, " ")
+            i = +1
+    question = question.replace("Openclassrooms", "OpenClassrooms")
+    question = question.replace("openclassrooms", "OpenClassrooms")
+    wordlist = question.split()  # list of the words of a question
     with open('stoplist.json') as json_file:
-        stoplist = list(json.load(json_file)) # list of stopwords in lowercase
-        for sign in punctuation:
-            stoplist.append(sign) # added punctuation to the stoplist
+        stoplist = list(json.load(json_file))  # list of stopwords in lowercase
     for word in wordlist:
-        include_in_parsedlist = True
+        if len(word) > 3:
+            include_in_parsedlist = True
         for stopword in stoplist:
             if stopword == word.casefold():
                 include_in_parsedlist = False
@@ -27,4 +29,5 @@ def parse(question):
     parsedstr = " ".join(str(x) for x in parsedlist)
     return parsedstr
 
-#print(parse("Salut GrandPy ! Est-ce que tu connais l'adresse de google ?"))
+
+# print(parse("Peut-tu m'indiquer où se trouve l'OpenClassrooms?"))

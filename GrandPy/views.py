@@ -7,10 +7,12 @@ from .location import get_address, get_latitude, get_longitude
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def main():
     """Method which renders an html page"""
     return render_template("main.html")
+
 
 @app.route('/process/', methods=['POST'])
 def process():
@@ -22,7 +24,5 @@ def process():
     address = get_address(parsed_question)
     lat = get_latitude(parsed_question)
     lng = get_longitude(parsed_question)
-    return jsonify({'data': [question, address, wiki_extract, wiki_url, lat, lng, parsed_question]})
-
-#if __name__ == "__main__":
-    #app.run(debug=True)"""
+    return jsonify({'data': [question, address, wiki_extract,
+                             wiki_url, lat, lng, parsed_question]})

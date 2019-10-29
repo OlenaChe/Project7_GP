@@ -1,17 +1,21 @@
 """Methods which get the data from the Google Maps API"""
 
-import requests
 import os
+
+import requests
+
 
 GOOGLE_KEY = os.getenv('GOOGLE_KEY')
 
+
 def get_data(query):
     """Method which gets the data concerned with the 'query' from the Google
-    Maps API""" 
-    par = {"key":str(GOOGLE_KEY), "query":query}
+    Maps API"""
+    par = {"key": str(GOOGLE_KEY), "query": query}
     url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
     req = requests.get(url, params=par)
     return req.json()
+
 
 def get_address(query):
     """Method which gets an address of the place concerned with the 'query'
@@ -20,12 +24,14 @@ def get_address(query):
     data = get_data(query)
     try:
         address_data = data["results"][0]["formatted_address"]
-        address = "Si je ne me trompe pas, l'adresse que tu cherche, c'est ... "\
-        + address_data + ". Sinon, dis-moi le nom de lieu exact"
+        address = ("Si je ne me trompe pas,"
+             " l'adresse que tu cherche, c'est ... " + address_data + ". Sinon"
+             ", dis-moi le nom de lieu exact")
     except IndexError:
         address = "Désolé, je n'ai pas compris quel endroit tu cherches ?"
     finally:
         return address
+
 
 def get_latitude(query):
     """Method which gets a latitude of the place concerned with the 'query'
@@ -38,6 +44,7 @@ def get_latitude(query):
         latitude = 48.856614
     finally:
         return latitude
+
 
 def get_longitude(query):
     """Method which gets a longitude of the place concerned with the 'query'
@@ -52,7 +59,7 @@ def get_longitude(query):
     finally:
         return longitude
 
-#print(get_data("OpenClassrooms"))
-#print(get_address("OpenClassrooms"))
-#print(get_latitude("OpenClassrooms"))
-#print(get_longitude("OpenClassrooms"))
+# print(get_data("Google"))
+# print(get_address("Google"))
+# print(get_latitude("Google"))
+# print(get_longitude("London"))
