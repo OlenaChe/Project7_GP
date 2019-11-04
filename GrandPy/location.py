@@ -59,7 +59,7 @@ def get_longitude(query):
     finally:
         return longitude
 
-# print(get_data("Google"))
-# print(get_address("Google"))
-# print(get_latitude("Google"))
-# print(get_longitude("London"))
+# print(get_data("OpenClassrooms"))
+# print(get_address("OpenClassrooms"))
+# print(get_latitude("OpenClassrooms"))
+# print(get_longitude("OpenClassrooms"))

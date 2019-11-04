@@ -1,4 +1,5 @@
 """Testing the methods get_address, get_latitude, get_longitude"""
+
 import requests
 
 from Projet7_GrandPy.GrandPy import location

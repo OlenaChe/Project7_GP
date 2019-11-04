@@ -25,7 +25,10 @@ def get_wiki_extract(query):
     try:
         wiki_data = \
             data['query']['pages'][list(data['query']['pages'])[0]]['extract']
-        wiki_extract = "D'ailleurs, est-ce que tu sais que " + wiki_data
+        if wiki_data != "":
+            wiki_extract = "D'ailleurs, est-ce que tu sais que " + wiki_data
+        else:
+            wiki_extract = "Oh ... j'ai oublié ce que je voulais dire"
     except KeyError:
         wiki_extract = "Je ne sais rien par rapport à ce sujet. C'est bizarre!"
     finally:
@@ -45,6 +48,6 @@ def get_wiki_url(query):
     finally:
         return wiki_url
 
-# print(get_wiki_info("RueilMalmaison"))
-# print(get_wiki_extract("Rueil-Malmaison"))
+# print(get_wiki_info("OpenClassrooms"))
+# print(get_wiki_extract("OpenClassrooms"))
 # print(get_wiki_url("OpenClassrooms"))

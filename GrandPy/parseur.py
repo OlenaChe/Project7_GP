@@ -19,8 +19,9 @@ def parse(question):
     with open('stoplist.json') as json_file:
         stoplist = list(json.load(json_file))  # list of stopwords in lowercase
     for word in wordlist:
-        if len(word) > 3:
-            include_in_parsedlist = True
+        include_in_parsedlist = True
+        if len(word) <= 3:
+            include_in_parsedlist = False
         for stopword in stoplist:
             if stopword == word.casefold():
                 include_in_parsedlist = False
@@ -30,4 +31,4 @@ def parse(question):
     return parsedstr
 
 
-# print(parse("Peut-tu m'indiquer où se trouve l'OpenClassrooms?"))
+print(parse("Salut GrandPy ! Est-ce que tu connais l'adresse d'OpenClassrooms"))
